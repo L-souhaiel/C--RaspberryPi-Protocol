@@ -17,8 +17,6 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include<cstring>
-#include<pthread.h>
-
 
 #include <cmath> 
 #include <cstdio> 
@@ -33,6 +31,7 @@
 #define READ_MODE 1
 #define WRITE_MODE 0 
 
+
 class RaspiGpio //for read and write digital values and delay in milisecond
 
 {
@@ -45,10 +44,11 @@ RaspiGpio(int pin , int type);
 int digitalReadPin() const ; 
 int digitalWritePin(  int value);
 
-static void CleanPin(); 
+
 static int milisecondDelay(int millisecond); 
 int ExportPin();  
 int DirectionPin(int type);
+int UnexportPin(int pin); 
 
 
 private : 
@@ -61,7 +61,7 @@ int m_type;
 
 
 
-int UnexportPin(int pin); 
+
 
 
 

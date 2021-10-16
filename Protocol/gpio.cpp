@@ -40,7 +40,8 @@ return 0 ;
 }
 
 
-int UnexportPin(int pin)
+
+int RaspiGpio::UnexportPin(int pin)
 {
     
 char buffer[MAX_BUFFER]; 
@@ -98,7 +99,6 @@ return 0 ;
 
 int RaspiGpio::digitalReadPin() const 
 {
- 
   char path[MAX_BUFFER];         /* Buffer fuer Pfad     */
 
   int fd;                       /* Filedescriptor       */
@@ -130,15 +130,11 @@ int RaspiGpio::digitalReadPin() const
     }
 
   close(fd);
-  return(atoi(result));    
+  std::cout <<"value = " << atoi(result) <<std::endl;
+  return(atoi(result));
+ 
+     
 }
-
-
-
-
-
-
-
 
 
 int RaspiGpio::digitalWritePin(int value)
@@ -167,17 +163,6 @@ return 0 ;
 }
 
 
-
- void RaspiGpio::CleanPin()
- {
-    for(int i (0) ; i < Pins.size() ; i++)
-    {
-     UnexportPin(Pins[i]);
-     sleep(1);
-    }
-     
-      
- }
 
 
 
