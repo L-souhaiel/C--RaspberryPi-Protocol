@@ -1,6 +1,8 @@
 #include"gpio.h"
 std::vector<int> RaspiGpio::Pins;
 
+//this API give the user the possibilty to manipulate Raspberry Pi GPIo based on C++
+
 RaspiGpio::RaspiGpio(int pin , int type ): m_pin(pin) , m_type(type)
 {
 
